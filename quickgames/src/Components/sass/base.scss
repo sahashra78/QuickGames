@@ -1,0 +1,50 @@
+body{
+    background-color: $soft-dark;
+}
+button{ cursor: pointer; }
+.btn{
+    border: none;
+    padding: 5px 20px;
+    margin: 5px;
+    transition: 200ms ease-in-out;
+    font-family: $default-font;
+
+    @include blur();
+
+    &:hover, &:focus, &:active{
+        background-color: $white;
+        color: #000;
+        outline:none;
+    }
+}
+.rounded_btn{ 
+    @extend .btn;
+    border-radius: 10px;
+}
+.dark_btn{
+    background-color: rgba(0,0,0,0.5);
+    color: $white;
+}
+a{
+    color: $dark;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.blurContainer{
+    position: relative;
+    @include blur(10px, rgba(255,255,255,0.08));
+    padding: 30px;
+    margin: 10px;
+    border-radius: 10px;
+
+    .blurContainerTitle{
+        position: absolute;
+        top: -25%;
+        left: 10%;
+        transform: translate(-10%, 25%);
+        font-size: 20px;
+        @include shadow();
+
+    }
+}

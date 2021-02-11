@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+
+$dark : #171717;
+$soft-dark: #2D3436;
+$white: #fff;
+$head-font: 'Montserrat', sans-serif;
+$default-font: 'Courier New', Courier, monospace;
+
+// variables for navigation bar
+$nav_min-height_desktop: 350px;
+$nav_height_desktop: 50vh;
+$nav_min-height_mobile: 650px;
+$nav_height_mobile: 80vh;
+
+
+@mixin blur($value: 3px, $background: rgba(255,255,255,0.6)) {
+    -webkit-backdrop-filter: blur($value);
+    backdrop-filter: blur($value);
+    background: $background;
+}
+
+@mixin imageBlur($value: 5px) {
+    -webkit-filter: blur($value);
+    filter: blur($value);
+}
+
+@mixin shadow($color: #333, $left:2px, $top: 2px, $spread: 5px){
+    transition: filter 300ms ease-in-out;
+    filter: drop-shadow($left $top $spread $color);
+    -webkit-filter: drop-shadow($left $top $spread $color);
+}
+
+@mixin flexBox(){
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+    justify-items: center;
+    align-items: center;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: $head-font;
+    color: $white;
+}
+.textWhite{  color: $white;  }
+.textDark{  color: $dark;  }
+.textLeft{  text-align: left;  }
+.textCenter{  text-align: center;  }
+.textRight{  text-align: right;  }
+.textExtraLarge{  font-size: 50px;  }
+.textLarge{  font-size: 40px;  }
+.textBigMedium{  font-size: 35px;  }
+.textMedium{  font-size: 30px;  }
+.textSmallMedium{  font-size: 25px;  }
+.textSmall{  font-size: 20px;  }
+.textBold{ font-weight: bold; }
+
+
+.wrapper{
+    max-width: 1200px;
+    width: 80%;
+    margin: auto;
+}
+
+@media screen and (max-width: 750px){
+.textExtraLarge{  font-size: 40px;  }
+.textLarge{  font-size: 35px;  }
+.textBigMedium{  font-size: 30px;  }
+.textMedium{  font-size: 25px;  }
+.textSmallMedium{  font-size: 20px;  }
+.textSmall{  font-size: 15px;  }
+}
+@media screen and (max-width: 550px){
+.textExtraLarge{  font-size: 30px;  }
+.textLarge{  font-size: 25px;  }
+.textBigMedium{  font-size: 22px;  }
+.textMedium{  font-size: 20px;  }
+.textSmallMedium{  font-size: 18px;  }
+.textSmall{  font-size: 15px;  }
+}

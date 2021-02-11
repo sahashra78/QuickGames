@@ -1,0 +1,70 @@
+nav{
+    background: linear-gradient(to top right, #2b5876 , #4e4376);
+    min-height: $nav_min-height_mobile;
+    height: $nav_height_mobile;
+    position: relative;
+    padding: 30px 0;
+}
+
+.navbar{
+    position: relative;
+    height: $nav_height_mobile;
+
+    @include flexBox();
+
+    div:nth-child(1){
+        text-align: center;
+    }
+    
+}
+
+@media screen and (min-width: 700px){
+    nav{
+        min-height: $nav_min-height_desktop;
+        height: $nav_height_desktop;
+    }
+    .navbar{
+        height: $nav_height_desktop;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    nav{
+        min-height: $nav_min-height_desktop;
+        height: $nav_height_desktop;
+    }
+    .navbar{
+        height: $nav_height_desktop;
+    }
+}
+
+.heroPatternImage{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.avatarImage{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.avatarContainer{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    img{
+        width: 40px;
+        height: auto;
+        cursor: pointer;
+        margin: 2px;
+        transition: transform 200ms ease-in-out;
+
+        &:hover{
+            transform: scale(1.1);
+            @include shadow();
+        }
+    }
+}

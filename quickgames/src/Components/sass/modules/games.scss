@@ -1,0 +1,397 @@
+.gameCollection{
+    margin: 50px auto;
+    @include flexBox();
+}
+.test img{
+    border-radius:50%;
+    cursor: pointer;
+}
+
+.gameContainer{
+    position: relative;
+    max-width: 300px;
+    margin: 10px;
+    border-radius: 10px;
+
+    img{
+        width: 300px;
+        height: 350px;
+        transition: 200ms ease-in-out;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+    &:hover img{
+        @include imageBlur(5px);
+    }
+
+    .gameInfo{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 30px;
+        font-weight: bold;
+
+        h6{
+            @include shadow(#000, 1px, 1px, 3px);
+            @include blur(5px, rgba(255,255,255,0));
+            padding: 5px;
+        }
+        
+        .rounded_btn{
+            background-color: rgba(0,0,0,0.2);
+            color: $white;
+
+            &:hover{
+                background-color: rgba(0,0,0,0.3);
+                color: $white;
+            }
+        }
+    }
+}
+
+.gameWindow{
+    position: relative;
+    margin: 50px auto;
+
+    .backButton{
+        color: $white;
+
+        span{
+            vertical-align: middle;
+        }
+        
+        &:hover{
+            @include shadow(#000, 5px, 5px, 5px);
+        }
+    }
+}
+.score-row{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    margin: auto;
+
+    .selectedImage{
+        width: 100px;
+        height: auto;
+    }
+
+    .gameCollection img{
+        width: 30px;
+        height: auto;
+    }
+}
+#roundNumber{
+    color: #2b5876;
+}
+.gameBoard{
+    align-items: start;
+    padding: 30px 0 30px;
+}
+
+@media screen and (max-width: 550px){
+    .score-row{
+        .selectedImage{
+            width: 50px;
+        }
+    }
+}
+
+
+.ticTacToeContainer{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+
+    .ticTacToeResetButton{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        width: 110%;
+        height: 110%;
+        margin: 0 auto;
+        @include blur(5px, linear-gradient(to top right, rgba(43, 88, 118, 0.8) , rgba(78, 67, 118, 0.8)));
+        border-radius: 10px;
+        vertical-align: middle;
+        
+
+        h1{
+            font-size: 100px;
+            margin: 0 auto;
+            transform: translateY(100px);
+        }
+        h4{
+            margin: 0 auto;
+            transform: translateY(100px);
+            color: $dark;
+        }
+        p{
+            font-size: 20px;
+            font-weight: lighter;
+            margin: 0 auto;
+            transform: translateY(150px);
+        }
+    }
+    .showTurn{
+        position: absolute;
+        top: -25%;
+        left: 50%;
+        transform: translate(-50%, 25%);
+        white-space: nowrap;
+    }
+
+    button{
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+        border:none;
+        outline: none;
+        margin: 2px;
+        font-size: 40px;
+        transition: 300ms ease-in-out;
+
+        &:hover{
+            border-radius: 20px;
+            @include blur(10px, rgba(255,255,255,0.7));
+        }
+    }
+}
+@media screen and (max-width: 550px){
+    .ticTacToeContainer{
+        width: 240px;
+
+        button{
+            width: 80px;
+            height: 80px;
+        }
+
+        .ticTacToeResetButton{
+            h1{
+                transform: translateY(60px);
+            }
+            h4{
+                transform: translateY(60px);
+            }
+            p{
+                transform: translateY(90px);
+            }
+        }
+        
+    }
+}
+.mathCard{
+    position: relative;
+    max-width: 300px;
+    margin: auto;
+    @include blur(5px, linear-gradient(to top right, rgba(43, 88, 118, 0.8) , rgba(78, 67, 118, 0.8)));
+    padding: 50px;
+    border-radius: 10px;
+
+    .score{
+        position: absolute;
+        top: 0;
+        left: 10%;
+        transform: translate(0,-10%);
+        white-space: nowrap;
+    }
+    .timer{
+        position: absolute;
+        top: 0;
+        left: 90%;
+        transform: translate(-90%, 0);
+        white-space: nowrap;
+    }
+    .startButton{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        @include blur();
+        border-radius: 10px;
+        z-index: 100;
+
+        h1{
+            margin: auto;
+            color: $dark;
+        }
+        h4{
+            margin: auto;
+            color: $dark;
+        }
+        h3{
+            margin: auto;
+        }
+    }
+
+    button{
+        width: 100%;
+    }
+    .mathQuestion{
+        span:nth-child(odd){
+        font-size: 80px;
+        margin: 0;
+        }
+        span:nth-child(even){
+            font-size: 50px;
+            margin: 0;
+        }
+    }
+    
+    .flex{
+        @include flexBox();
+        width: 60%;
+        margin: auto;
+        flex-wrap: nowrap;
+    }
+}
+// For PopUp Container
+/** PopUp **/
+
+@-webkit-keyframes PopUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+    }
+    50%{
+        opacity: 1;
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    100%{
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@-moz-keyframes PopUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+    }
+    50%{
+        opacity: 1;
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    100%{
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@keyframes PopUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+    }
+    50%{
+        opacity: 1;
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    100%{
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+}
+.pop-up {
+    -webkit-animation-name: PopUp;
+    -moz-animation-name: PopUp;
+    -o-animation-name: PopUp;
+    animation-name: PopUp;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+}
+.popUpContainer{
+    display: block;
+    grid-template-columns: 1fr 1fr;
+    position: fixed;
+    top:0; bottom:0; left:0; right: 0;
+    margin: auto;
+    padding: 50px;
+    width: 70vw;
+    max-width: 600px;
+    max-height: 70vh;
+    height: fit-content;
+    color: $white;
+    @include blur(15px, rgba(23,23,23,0.9));
+    z-index: 50;
+    box-shadow: 0px 10px 50px #000;
+    animation-name: PopUp;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+}
+.close{
+    position: absolute;
+    top: 5%;
+    left: 95%;
+    transform: translate(-95%, -5%);
+    font-size: 30px;
+    color: #999;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 300ms ease-in-out;
+}
+.close:hover, .close:focus {
+    color: $dark;
+    text-shadow: 3px 3px 5px #000;
+}
+.showInfo{
+    position: absolute;
+    top: 10%;
+    left: 90%;
+    transform: translate(-90%, -10%);
+    cursor: pointer;
+}
